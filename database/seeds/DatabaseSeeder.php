@@ -11,6 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        \Framgia\Xvla\User::query()->forceDelete();
+        
+        \Framgia\Xvla\User::create([
+            'id' => 1,
+            'email' => 'admin@example.com',
+            'name' => 'admin',
+            'password' => bcrypt('12345678'),
+        ]);
+
+        factory(\Framgia\Xvla\News::class)->times(10)->create([
+            'user_id' => 1,
+        ]);
     }
 }

@@ -19,3 +19,10 @@ $factory->define(Framgia\Xvla\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\Framgia\Xvla\News::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->words(6, true),
+        'content' => $faker->realText(),
+    ];
+});
